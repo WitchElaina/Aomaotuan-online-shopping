@@ -8,4 +8,5 @@ public interface GoodsDao {
     public List<Goods> find_all_goods(Goods goods);
     public Goods find_goods_by_id(int id);
     public int modify_goods(Goods goods);
+    public int delete_by_id(int id);
 }

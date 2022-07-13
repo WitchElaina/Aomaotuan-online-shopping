@@ -7,3 +7,4 @@ com/amt/bean/GoodsType.class
 com/amt/utils/SqlSessionUtils.class
 com/amt/controller/GoodsUpdateController.class
 com/amt/controller/GoodsController.class
+com/amt/controller/GoodsDeleteController.class

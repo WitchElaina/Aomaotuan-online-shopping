@@ -57,4 +57,22 @@ public class GoodsService {
             }
         }
     }
+
+    public int delete_by_id(int id) {
+        SqlSession sqlSession = null;
+        try {
+            sqlSession = SqlSessionUtils.getSqlSession();
+            GoodsDao goodsDao = sqlSession.getMapper(GoodsDao.class);
+            int ret = goodsDao.delete_by_id(id);
+            sqlSession.commit();
+            return ret;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        } finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
+    }
 }

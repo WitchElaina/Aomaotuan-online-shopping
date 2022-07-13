@@ -50,4 +50,7 @@
         where goods_id = #{goods_id}
     </update>
 
+    <delete id="delete_by_id" parameterType="com.amt.bean.Goods">
+        delete from goods where goods_id = #{id}
+    </delete>
 </mapper>

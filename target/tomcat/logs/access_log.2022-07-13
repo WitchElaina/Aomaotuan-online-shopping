@@ -1297,3 +1297,9 @@
 0:0:0:0:0:0:0:1 - - [13/Jul/2022:20:04:34 +0800] "POST /admin/goods/toupdate.do HTTP/1.1" 200 16549 http-bio-8080-exec-2 226
 0:0:0:0:0:0:0:1 - - [13/Jul/2022:20:04:38 +0800] "GET /admin/goods/toupdate.do?goodsId=1 HTTP/1.1" 200 6684 http-bio-8080-exec-3 65
 0:0:0:0:0:0:0:1 - - [13/Jul/2022:20:04:42 +0800] "POST /admin/goods/toupdate.do HTTP/1.1" 200 16550 http-bio-8080-exec-4 105
+0:0:0:0:0:0:0:1 - - [13/Jul/2022:20:15:13 +0800] "GET /admin/goods/showgoods.do HTTP/1.1" 200 16550 http-bio-8080-exec-1 993
+0:0:0:0:0:0:0:1 - - [13/Jul/2022:20:15:15 +0800] "GET /admin/goods/showgoods.do HTTP/1.1" 200 16550 http-bio-8080-exec-2 75
+0:0:0:0:0:0:0:1 - - [13/Jul/2022:20:15:16 +0800] "GET /admin/goods/toupdate.do?goodsId=1 HTTP/1.1" 200 6685 http-bio-8080-exec-3 68
+0:0:0:0:0:0:0:1 - - [13/Jul/2022:20:15:21 +0800] "POST /admin/goods/toupdate.do HTTP/1.1" 200 16556 http-bio-8080-exec-4 111
+0:0:0:0:0:0:0:1 - - [13/Jul/2022:20:15:26 +0800] "GET /admin/goods/todelete.do?goodsId=4 HTTP/1.1" 200 16533 http-bio-8080-exec-5 92
+0:0:0:0:0:0:0:1 - - [13/Jul/2022:20:15:29 +0800] "GET /admin/goods/todelete.do?goodsId=5 HTTP/1.1" 200 16544 http-bio-8080-exec-6 72
