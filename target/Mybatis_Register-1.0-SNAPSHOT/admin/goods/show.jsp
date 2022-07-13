@@ -121,7 +121,7 @@ for(i=0;i<cs.length;i++){
                 <td width="60"><table width="90%" border="0" cellpadding="0" cellspacing="0">
                   <tr>
                     <td class="STYLE1"><div align="center"><img src="images/22.gif" width="14" height="14" /></div></td>
-                    <td class="STYLE1"><div align="center"><A href="javascript:void(0)">新增</A></div></td>
+                    <td class="STYLE1"><div align="center"><A href="${pageContext.request.contextPath}/admin/goods/save.jsp">新增</A></div></td>
                   </tr>
                 </table></td>
                 <td width="52"><table width="88%" border="0" cellpadding="0" cellspacing="0">
@@ -141,9 +141,10 @@ for(i=0;i<cs.length;i++){
    <!-- 多条件查询表单 -->
    <td height="50" align="left">
      <form action="${pageContext.request.contextPath}/admin/goods/showgoods.do" method="post">
-       搜索 商品名称<input type="text" placeholder="输入商品名称..." name="goods_name"/>
+       搜索 商品名称<input type="text" placeholder="输入商品名称..." name="goods_name" value="${good.goods_name}"/>
        价格区间<input style="width: 40px"  type="text" name="goods_price_min"/>--<input style="width: 40px" type="text" name="goods_price_max"/>
        <select name="type_name">
+         <option></option>
          <c:forEach items="${goodsTypes}" var="item">
            <option>${item.type_name}</option>
          </c:forEach>
@@ -188,7 +189,7 @@ for(i=0;i<cs.length;i++){
               <td height="20" bgcolor="#FFFFFF" nowrap="nowrap"><div align="center"><span class="STYLE1">${item.goods_price}</span></div></td>
               <td height="20" bgcolor="#FFFFFF" nowrap="nowrap"><div align="center"><span class="STYLE1">${item.goods_num}</span></div></td>
               <td height="20" bgcolor="#FFFFFF" nowrap="nowrap"><div align="center"><span class="STYLE1">${item.type_name}</span></div></td>
-              <td height="20" bgcolor="#FFFFFF" nowrap="nowrap"><div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16" /><A href="${pageContext.request.contextPath }/admin/goods/toupdate.do?goodsId=">编辑</A>&nbsp; &nbsp;<img src="images/del.gif" width="16" height="16" /><A href="javascript:void(0)">删除</A></span></div></td>
+              <td height="20" bgcolor="#FFFFFF" nowrap="nowrap"><div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16" /><A href="${pageContext.request.contextPath}/admin/goods/toupdate.do?goodsId=${item.goods_id}">编辑</A>&nbsp; &nbsp;<img src="images/del.gif" width="16" height="16" /><A href="${pageContext.request.contextPath}/admin/goods/todelete.do?goodsId=${item.goods_id}">删除</A></span></div></td>
             </tr>
           </c:forEach>
 

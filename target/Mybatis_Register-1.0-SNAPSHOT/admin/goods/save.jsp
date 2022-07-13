@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
@@ -134,4 +134,21 @@ body {
   </tr>
 </table>
   </body>
+  <script type="application/javascript" src="js/jquery-1.7.2.min.js"></script>
+  <script>
+    $(function () {
+      $.ajax({
+        url: "/admin/goods/ajax.do",
+        dataType: "json",
+        success: function (result) {
+          let msg = "";
+          for(let goodsType in result) {
+            // msg = msg + goodsType + " ";
+            $("#goodsType").append("<option>"+result[goodsType]["type_name"]+"</option>>")
+          }
+          // alert(msg);
+        }
+      })
+    })
+  </script>
 </html>

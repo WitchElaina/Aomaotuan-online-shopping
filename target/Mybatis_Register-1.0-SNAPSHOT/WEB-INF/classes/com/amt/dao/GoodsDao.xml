@@ -14,19 +14,43 @@
         from goods g inner join goods_type gt
         on g.goods_type_id = gt.type_id
         <where>
-            <if test="goods_name != null">
-                g.goods_name like '%#{goods_name}%'
+            <if test="goods_name!=null">
+                g.goods_name like "%"#{goods_name}"%"
             </if>
-            <if test="goods_price != null">
-                and g.goods_prices >= #{goods_price}
+            <if test="goods_price!=null">
+                and g.goods_price >= #{goods_price}
             </if>
-            <if test="end_goods_price != null">
+            <if test="end_goods_price!=null">
                 and #{end_goods_price} >= g.goods_price
             </if>
-            <if test="type_name != null">
+            <if test="type_name!=null">
                 and gt.type_name = #{type_name}
             </if>
         </where>
     </select>
+    
+    <select id="find_goods_by_id" resultType="com.amt.bean.Goods">
+        select
+            g.goods_id,
+            g.goods_name,
+            g.goods_price,
+            g.goods_num,
+            gt.type_name
+        from goods g inner join goods_type gt
+        on g.goods_type_id = gt.type_id
+        where g.goods_id = #{id}
+    </select>
+    
+    <update id="modify_goods" parameterType="com.amt.bean.Goods">
+        update goods set
+            goods_name = #{goods_name},
+            goods_price = #{goods_price},
+            goods_num = #{goods_num},
+            goods_type_id = #{type_id}
+        where goods_id = #{goods_id}
+    </update>
 
+    <delete id="delete_by_id" parameterType="com.amt.bean.Goods">
+        delete from goods where goods_id = #{id}
+    </delete>
 </mapper>

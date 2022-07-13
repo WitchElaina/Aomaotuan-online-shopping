@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
@@ -66,10 +66,10 @@ body {
       <tr>
         <td width="8" background="images/tab_12.gif">&nbsp;</td>
         <td><!-- 修改表单 -->
-        <form action="${pageContext.request.contextPath }/admin/goods/update.do"
+        <form action="${pageContext.request.contextPath }/admin/goods/toupdate.do"
          method="post" name="updategoodsform" id="updategoodsform">
-         <input type="hidden" name="goodsId" value="${requestScope.goods.goodsId }">
-         <input type="hidden" name="srcGoodsName" value="${requestScope.goods.goodsName }">
+         <input type="hidden" name="goodsId" value="${requestScope.goods.goods_id }">
+         <input type="hidden" name="srcGoodsName" value="${requestScope.goods.goods_name }">
           <table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="b5d6e6" >
             <tr>
               <td width="100%" colspan="2" height="19" align="right"  bgcolor="#FFFFFF"><div align="center"><span class="STYLE1" style="color:red;">${requestScope.errorInfo }</span></div></td>
@@ -77,30 +77,29 @@ body {
             <tr>
               <td width="34%" height="19" align="right"  bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">商品名称：</span></div></td>
               <td width="66%" height="19" align="left"  bgcolor="#FFFFFF"><div align="left"><span class="STYLE1">
-                <input type="text" name="goodsName" id="goodsName" value="${requestScope.goods.goodsName }">
+                <input type="text" name="goodsName" id="goodsName" value="${requestScope.goods.goods_name }">
               </span></div></td>
             </tr>
             <tr>
               <td width="34%" height="19" align="right"  bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">商品价格：</span></div></td>
               <td width="66%" height="19" align="left"  bgcolor="#FFFFFF"><div align="left"><span class="STYLE1">
-                <input type="text" name="goodsPrice" id="goodsPrice" value="${requestScope.goods.goodsPrice }">
+                <input type="text" name="goodsPrice" id="goodsPrice" value="${requestScope.goods.goods_price }">
               </span></div></td>
             </tr>
             <tr>
               <td width="34%" height="19" align="right"  bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">商品数量：</span></div></td>
               <td width="66%" height="19" align="left"  bgcolor="#FFFFFF"><div align="left"><span class="STYLE1">
-                <input type="text" name="goodsNum" id="goodsNum" value="${requestScope.goods.goodsNum }">
+                <input type="text" name="goodsNum" id="goodsNum" value="${requestScope.goods.goods_num }">
               </span></div></td>
             </tr>
             <tr>
               <td width="34%" height="19" align="right"  bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">商品类型：</span></div></td>
               <td width="66%" height="19" align="left"  bgcolor="#FFFFFF"><div align="left"><span class="STYLE1">
                 <select name="goodsType" id="goodsType">
-                <c:forEach items="${requestScope.typeList }" var="type">
-				<option value="${type.typeId }" ${type.typeId eq requestScope.goods.goodsType.typeId ?'selected':'' } >
-					${type.typeName }
-				</option>
-                </c:forEach>
+                  <option>${goods.type_name}</option>
+                  <c:forEach items="${goodsTypes}" var="goodsType">
+                    <option>${goodsType.type_name}</option>
+                  </c:forEach>
                 </select>
               </span></div></td>
             </tr>

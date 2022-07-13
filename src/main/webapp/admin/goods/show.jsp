@@ -121,7 +121,7 @@ for(i=0;i<cs.length;i++){
                 <td width="60"><table width="90%" border="0" cellpadding="0" cellspacing="0">
                   <tr>
                     <td class="STYLE1"><div align="center"><img src="images/22.gif" width="14" height="14" /></div></td>
-                    <td class="STYLE1"><div align="center"><A href="javascript:void(0)">新增</A></div></td>
+                    <td class="STYLE1"><div align="center"><A href="${pageContext.request.contextPath}/admin/goods/save.jsp">新增</A></div></td>
                   </tr>
                 </table></td>
                 <td width="52"><table width="88%" border="0" cellpadding="0" cellspacing="0">

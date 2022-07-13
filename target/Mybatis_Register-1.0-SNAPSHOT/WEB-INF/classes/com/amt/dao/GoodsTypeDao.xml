@@ -9,4 +9,7 @@
     <select id="find_all" resultType="com.amt.bean.GoodsType">
         select <include refid="columns"></include> from goods_type
     </select>
+    <select id="find_by_name" resultType="com.amt.bean.GoodsType">
+        select type_id from goods_type where type_name = #{type_name}
+    </select>
 </mapper>
