@@ -39,4 +39,22 @@ public class GoodsService {
             }
         }
     }
+
+    public int modify_goods(Goods goods) {
+        SqlSession sqlSession = null;
+        try {
+            sqlSession = SqlSessionUtils.getSqlSession();
+            GoodsDao goodsDao = sqlSession.getMapper(GoodsDao.class);
+            int ret = goodsDao.modify_goods(goods);
+            sqlSession.commit();
+            return ret;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        } finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
+    }
 }

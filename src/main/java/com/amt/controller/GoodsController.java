@@ -56,13 +56,13 @@ public class GoodsController extends HttpServlet{
         if(max_price != null && !"".equals(max_price)) {
             goods.setEnd_goods_price(Double.parseDouble(max_price));
         }
-        System.out.println("Goods: "+goods.toString());
+//        System.out.println("Goods: "+goods.toString());
 
         // call services methods
         PageHelper.startPage(Integer.parseInt(currentPage),4);
         GoodsService goodsService = new GoodsService();
         List<Goods> all_goods = goodsService.find_all_goods(goods);
-        System.out.println(all_goods);
+//        System.out.println(all_goods);
 
         PageInfo<Goods> pageInfo = new PageInfo<>(all_goods);
 

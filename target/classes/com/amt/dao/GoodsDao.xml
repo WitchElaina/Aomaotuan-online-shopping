@@ -40,5 +40,14 @@
         on g.goods_type_id = gt.type_id
         where g.goods_id = #{id}
     </select>
+    
+    <update id="modify_goods" parameterType="com.amt.bean.Goods">
+        update goods set
+            goods_name = #{goods_name},
+            goods_price = #{goods_price},
+            goods_num = #{goods_num},
+            goods_type_id = #{type_id}
+        where goods_id = #{goods_id}
+    </update>
 
 </mapper>

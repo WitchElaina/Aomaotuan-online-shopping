@@ -14,13 +14,13 @@ public class Goods {
 
     }
 
-    public Goods(Integer goods_id, String goods_name, Double goods_price, Integer goods_num, String type_name, Integer type_id) {
+    public Goods(Integer goods_id, String goods_name, Double goods_price, Integer goods_num, Integer type_id) {
 //        this.goods_img = goods_img;
         this.goods_id = goods_id;
         this.goods_name = goods_name;
         this.goods_price = goods_price;
         this.goods_num = goods_num;
-        this.type_name = type_name;
+//        this.type_name = type_name;
 //        this.end_goods_price = end_goods_price;
         this.type_id = type_id;
     }

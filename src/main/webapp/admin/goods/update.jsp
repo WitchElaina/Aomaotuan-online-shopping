@@ -66,7 +66,7 @@ body {
       <tr>
         <td width="8" background="images/tab_12.gif">&nbsp;</td>
         <td><!-- 修改表单 -->
-        <form action="${pageContext.request.contextPath }/admin/goods/update.do"
+        <form action="${pageContext.request.contextPath }/admin/goods/toupdate.do"
          method="post" name="updategoodsform" id="updategoodsform">
          <input type="hidden" name="goodsId" value="${requestScope.goods.goods_id }">
          <input type="hidden" name="srcGoodsName" value="${requestScope.goods.goods_name }">
