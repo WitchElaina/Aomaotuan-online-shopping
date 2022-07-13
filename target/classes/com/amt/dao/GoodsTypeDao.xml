@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.amt.dao.GoodsTypeDao">
+    <sql id="columns">
+        type_id,type_name,type_pid,type_level,type_path
+    </sql>
+    <select id="find_all" resultType="com.amt.bean.GoodsType">
+        select <include refid="columns"></include> from goods_type
+    </select>
+</mapper>

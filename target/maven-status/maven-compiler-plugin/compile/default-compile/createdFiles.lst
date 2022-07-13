@@ -1,0 +1,9 @@
+com/amt/service/GoodsService.class
+com/amt/service/GoodsTypeService.class
+com/amt/dao/GoodsDao.class
+com/amt/bean/Goods.class
+com/amt/dao/GoodsTypeDao.class
+com/amt/bean/GoodsType.class
+com/amt/utils/SqlSessionUtils.class
+com/amt/controller/GoodsUpdateController.class
+com/amt/controller/GoodsController.class

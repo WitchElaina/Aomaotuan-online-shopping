@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.amt.dao.GoodsDao">
+    <select id="find_all_goods" resultType="com.amt.bean.Goods" parameterType="com.amt.bean.Goods">
+        select
+            g.goods_img,
+            g.goods_id,
+            g.goods_name,
+            g.goods_price,
+            g.goods_num,
+            gt.type_name
+        from goods g inner join goods_type gt
+        on g.goods_type_id = gt.type_id
+        <where>
+            <if test="goods_name != null">
+                g.goods_name like '%#{goods_name}%'
+            </if>
+            <if test="goods_price != null">
+                and g.goods_prices >= #{goods_price}
+            </if>
+            <if test="end_goods_price != null">
+                and #{end_goods_price} >= g.goods_price
+            </if>
+            <if test="type_name != null">
+                and gt.type_name = #{type_name}
+            </if>
+        </where>
+    </select>
+
+</mapper>
