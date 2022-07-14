@@ -26,7 +26,7 @@ public class GoodsController extends HttpServlet{
     // override a tag GET
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("utf8");
+        req.setCharacterEncoding("utf-8");
 
         // get request args
         String currentPage =req.getParameter("currentPage");
@@ -35,8 +35,8 @@ public class GoodsController extends HttpServlet{
         }
 
         String goods_name = req.getParameter("goods_name");
-        String min_price = req.getParameter("min_price");
-        String max_price = req.getParameter("max_price");
+        String min_price = req.getParameter("goods_price_min");
+        String max_price = req.getParameter("goods_price_max");
         String type_name = req.getParameter("type_name");
 
         Goods goods = new Goods();
