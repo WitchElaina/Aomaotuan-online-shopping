@@ -26,5 +26,6 @@
     <mappers>
         <mapper resource="com/amt/dao/GoodsDao.xml"></mapper>
         <mapper resource="com/amt/dao/GoodsTypeDao.xml"></mapper>
+        <mapper resource="com/amt/dao/AdminsDao.xml"></mapper>
     </mappers>
 </configuration>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.amt.dao.AdminsDao">
+    <select id="adminLogin" resultType="java.util.HashMap">
+        select a.admin_id,a.admin_name,a.admin_pass,r.role_name
+        from admins a
+        left join roles r
+        on a.admin_role = r.role_id
+        where a.admin_name = #{adminName} and a.admin_pass = #{adminPass}
+    </select>
+
+</mapper>

@@ -64,7 +64,7 @@ body {
                     <td width="50" height="19"><div align="center"><img src="images/main_14.gif" width="48" height="19"></div></td>
                     <td width="50" height="19"><div align="center"><img src="images/main_16.gif" width="48" height="19"></div></td>
                     <td width="50" height="19"><div align="center"><img src="images/main_18.gif" width="48" height="19"></div></td>
-                    <td width="50" height="19"><div align="center"><A href="${pageContext.request.contextPath }/admin/exit.do" target="_top"><img src="images/main_20.gif" width="48" height="19"></A></div></td>
+                    <td width="50" height="19"><div align="center"><A href="${pageContext.request.contextPath}//admin/logout.do" target="_top"><img src="images/main_20.gif" width="48" height="19"></A></div></td>
                     <td width="26" height="19"><div align="center"><A><img src="images/main_21.gif" width="26" height="19"></A></div></td>
                     <td width="99" height="19"><div align="center"><img src="images/main_22.gif" width="98" height="19"></div></td>
                     <td>&nbsp;</td>
@@ -95,7 +95,7 @@ body {
         <td width="177" height="28" background="images/main_32.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td width="20%"  height="22">&nbsp;</td>
-            <td width="59%" valign="center"><div align="center" class="STYLE1">当前用户：${sessionScope.admin.adminName }</div></td>
+            <td width="59%" valign="center"><div align="center" class="STYLE1">当前用户：${sessionScope.admins['admin_name']}</div></td>
             <td width="21%">&nbsp;</td>
           </tr>
         </table></td>

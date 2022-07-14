@@ -12,4 +12,11 @@
     <select id="find_by_name" resultType="com.amt.bean.GoodsType">
         select type_id from goods_type where type_name = #{type_name}
     </select>
+    <select id="findByTypeName" resultType="com.amt.bean.GoodsType">
+        select type_id,type_name from goods_type
+        <if test="typeName!=null">
+            <bind name="tn" value="'%'+'typeName'+'%'"/>
+            and type_name like #{tn}
+        </if>
+    </select>
 </mapper>

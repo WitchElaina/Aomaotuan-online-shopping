@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -107,6 +108,7 @@ imgmenu.background="images/main_48.gif";
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <c:if test="${sessionScope.admins.role_name=='超级管理员'}">
                   <tr>
                     <td width="16%" height="25"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
                     <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
@@ -115,11 +117,12 @@ imgmenu.background="images/main_48.gif";
                         </tr>
                     </table></td>
                   </tr>
+                  </c:if>
                   <tr>
                     <td height="23"><div align="center"><img src="images/left.gif" width="10" height="10" /></div></td>
                     <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
-                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="admin/goodstype/show.jsp" target="I2">商品类型维护</a></span></td>
+                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${pageContext.request.contextPath}/admin/goodstype/goodstype.do?action=showallgoodstype" target="I2">商品类型维护</a></span></td>
                         </tr>
                     </table></td>
                   </tr>

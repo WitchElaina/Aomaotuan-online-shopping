@@ -36,7 +36,9 @@ body {
 </style>
   </head>
   
-  <body><form action="<%=path %>/admin/main.jsp" name="adminloginform"  method="post">
+  <body>
+  <div>${error}</div>
+  <form action="${pageContext.request.contextPath}/admin/login.do" name="adminloginform"  method="post">
  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
     <td><table width="962" border="0" align="center" cellpadding="0" cellspacing="0">
