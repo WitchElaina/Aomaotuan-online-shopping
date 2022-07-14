@@ -155,7 +155,7 @@ body {
   <script>
     $(function () {
       $.ajax({
-        url: "/admin/goods/ajax.do",
+        url: "${pageContext.request.contextPath}/admin/goods/ajax.do",
         dataType: "json",
         success: function (result) {
           let msg = "";
@@ -175,7 +175,11 @@ body {
         fileElementId : 'file',//文件上传空间的id属性  <input type="file" id="file" name="file" />
         dataType : 'json',//返回值类型 一般设置为json
         success : function(data, status){//服务器成功响应处理函数 status 如果成功为200   data为返回的json数据 文件的路径和文件的名称
-
+          // create img object
+          let imgObj = $("<img>");
+          imgObj.attr("src", data.imgurl);
+          $("#imgDiv").append(imgObj);
+          $("#goods_img").val(data.imgname);
         },
         error: function (data, status, e){//服务器响应失败处理函数
           alert(status);

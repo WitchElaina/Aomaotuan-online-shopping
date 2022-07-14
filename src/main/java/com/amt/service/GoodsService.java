@@ -75,4 +75,41 @@ public class GoodsService {
             }
         }
     }
+
+    public int saveGoods(Goods goods) {
+        SqlSession sqlSession = null;
+        try {
+            sqlSession = SqlSessionUtils.getSqlSession();
+            GoodsDao goodsDao = sqlSession.getMapper(GoodsDao.class);
+            int ret = goodsDao.saveGoods(goods);
+            sqlSession.commit();
+            return ret;
+        } catch (Exception e) {
+            sqlSession.rollback();
+            e.printStackTrace();
+            return 0;
+        } finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
+    }
+
+    public int batchDeleteById(String[] idsArray) {
+        SqlSession sqlSession = null;
+        try {
+            sqlSession = SqlSessionUtils.getSqlSession();
+            GoodsDao goodsDao = sqlSession.getMapper(GoodsDao.class);
+            int ret = goodsDao.batchDeleteById(idsArray);
+            sqlSession.commit();
+            return ret;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        } finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
+    }
 }

@@ -101,9 +101,25 @@ body {
             </tr>
             <tr>
               <td width="34%" height="19" align="right"  bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">商品图片：</span></div></td>
-              <td width="66%" height="19" align="left"  bgcolor="#FFFFFF"><div align="left"><span class="STYLE1">
-              </span></div></td>
+              <td width="66%" height="19" align="left"  bgcolor="#FFFFFF">
+                <div align="left">
+                  <span class="STYLE1">
+                    <%--文件上传需要文件域 type="file" --%>
+                    <input type="file" id="file" name="file">
+                    <%--需要一个文件上传的按钮   点击后调用文件上传的函数--%>
+                    <input type="button" value="上传" onclick="ajaxFileUpload();">
+                    <%--保存文件的名称到数据库  最好隐藏 type="hidden"--%>
+                    <input type="hidden" id="goods_img" name="goods_img">
+                    <%--上传成功后预览--%>
+                    <div id="imgDiv">
+
+                    </div>
+                  </span>
+                </div>
+              </td>
             </tr>
+
+
             <tr>
               <td width="34%" height="19" align="right"  bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">&nbsp;</span></div></td>
               <td width="66%" height="19" align="left"  bgcolor="#FFFFFF"><div align="left"><span class="STYLE1">
@@ -134,11 +150,12 @@ body {
   </tr>
 </table>
   </body>
-  <script type="application/javascript" src="js/jquery-1.7.2.min.js"></script>
+  <script type="application/javascript" src="${pageContext.request.contextPath}/js/jquery-1.7.2.min.js"></script>
+  <script type="application/javascript" src="${pageContext.request.contextPath}/js/ajaxfileupload.js"></script>
   <script>
     $(function () {
       $.ajax({
-        url: "/admin/goods/ajax.do",
+        url: "${pageContext.request.contextPath}/admin/goods/ajax.do",
         dataType: "json",
         success: function (result) {
           let msg = "";
@@ -150,5 +167,26 @@ body {
         }
       })
     })
+
+    function ajaxFileUpload() {
+      $.ajaxFileUpload({
+        url : '${pageContext.request.contextPath}/upload.do',//用于文件上传的服务器端请求地址
+        secureuri : false,//一般设置为false
+        fileElementId : 'file',//文件上传空间的id属性  <input type="file" id="file" name="file" />
+        dataType : 'json',//返回值类型 一般设置为json
+        success : function(data, status){//服务器成功响应处理函数 status 如果成功为200   data为返回的json数据 文件的路径和文件的名称
+          // create img object
+          let imgObj = $("<img>");
+          imgObj.attr("src", data.imgurl);
+          $("#imgDiv").append(imgObj);
+          $("#goods_img").val(data.imgname);
+        },
+        error: function (data, status, e){//服务器响应失败处理函数
+          alert(status);
+          alert(e);
+        }
+      });
+    }
+
   </script>
 </html>

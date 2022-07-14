@@ -53,4 +53,19 @@
     <delete id="delete_by_id" parameterType="com.amt.bean.Goods">
         delete from goods where goods_id = #{id}
     </delete>
+    
+    <insert id="saveGoods" parameterType="com.amt.bean.Goods">
+        insert into goods(goods_name,goods_price,goods_num,goods_img,goods_type_id,goods_create_time)
+        values(#{goods_name},#{goods_price},#{goods_num},#{goods_img},#{type_id},now())
+    </insert>
+    
+    <delete id="batchDeleteById">
+        delete from goods
+        <if test="idsArray != null">
+            where goods_id in 
+            <foreach collection="idsArray" item="gid" open="(" close=")" separator=",">
+                #{gid}
+            </foreach>
+        </if>
+    </delete>
 </mapper>

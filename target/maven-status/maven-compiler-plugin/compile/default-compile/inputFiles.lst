@@ -3,6 +3,7 @@
 /Users/msz/IdeaProjects/amt/src/main/java/com/amt/bean/Goods.java
 /Users/msz/IdeaProjects/amt/src/main/java/com/amt/dao/GoodsTypeDao.java
 /Users/msz/IdeaProjects/amt/src/main/java/com/amt/controller/GoodsDeleteController.java
+/Users/msz/IdeaProjects/amt/src/main/java/com/amt/controller/UploadController.java
 /Users/msz/IdeaProjects/amt/src/main/java/com/amt/dao/GoodsDao.java
 /Users/msz/IdeaProjects/amt/src/main/java/com/amt/service/GoodsTypeService.java
 /Users/msz/IdeaProjects/amt/src/main/java/com/amt/controller/GoodsController.java

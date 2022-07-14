@@ -124,10 +124,10 @@ for(i=0;i<cs.length;i++){
                     <td class="STYLE1"><div align="center"><A href="${pageContext.request.contextPath}/admin/goods/save.jsp">新增</A></div></td>
                   </tr>
                 </table></td>
-                <td width="52"><table width="88%" border="0" cellpadding="0" cellspacing="0">
+                <td width="52"><table id="delete_all" width="88%" border="0" cellpadding="0" cellspacing="0">
                   <tr>
                     <td class="STYLE1"><div align="center"><img src="images/11.gif" width="14" height="14" /></div></td>
-                    <td class="STYLE1"><div align="center"><A href="javascript:void(0)">删除</A></div></td>
+                    <td class="STYLE1"><div align="center"><A href="javascript:void(0)">批量删除</A></div></td>
                   </tr>
                 </table></td>
               </tr>
@@ -178,7 +178,7 @@ for(i=0;i<cs.length;i++){
           <c:forEach items="${goods}" var="item" varStatus="vst">
             <tr>
               <td height="20" bgcolor="#FFFFFF" nowrap="nowrap"><div align="center">
-                <input type="checkbox" name="goodsIds" id="goodsIds"/>
+                <input type="checkbox" value="${item.goods_id}"/>
               </div></td>
               <td height="20" bgcolor="#FFFFFF" nowrap="nowrap"><div align="center" class="STYLE1">
                 <div align="center">${vst.count}</div>
@@ -211,14 +211,14 @@ for(i=0;i<cs.length;i++){
             <td>
             <table border="0" align="right" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td width="40"><A href="${pageContext.request.contextPath}/admin/goods/showgoods.do?currentPage=1"><img src="images/first.gif" width="37" height="15" /></A></td>
+                  <td width="40"><A href="${pageContext.request.contextPath}/admin/goods/showgoods.do?currentPage=1&goods_name=${good.goods_name}"><img src="images/first.gif" width="37" height="15" /></A></td>
                   <td width="45">
-                  <A href="${pageContext.request.contextPath}/admin/goods/showgoods.do?currentPage=${pageInfo.getPageNum()-1==0?1:pageInfo.getPageNum()-1}"><img src="images/back.gif" width="43" height="15" /></A>
+                  <A href="${pageContext.request.contextPath}/admin/goods/showgoods.do?currentPage=${pageInfo.getPageNum()-1==0?1:pageInfo.getPageNum()-1}&goods_name=${good.goods_name}"><img src="images/back.gif" width="43" height="15" /></A>
                   </td>
                   <td width="45">
-                  <A href="${pageContext.request.contextPath}/admin/goods/showgoods.do?currentPage=${pageInfo.getPageNum()==pageInfo.getPages()?pageInfo.getPages():pageInfo.getPageNum()+1}"><img src="images/next.gif" width="43" height="15" /></A>
+                  <A href="${pageContext.request.contextPath}/admin/goods/showgoods.do?currentPage=${pageInfo.getPageNum()==pageInfo.getPages()?pageInfo.getPages():pageInfo.getPageNum()+1}&goods_name=${good.goods_name}"><img src="images/next.gif" width="43" height="15" /></A>
                   </td>
-                  <td width="40"><A href="${pageContext.request.contextPath}/admin/goods/showgoods.do?currentPage=${pageInfo.getPages()}"><img src="images/last.gif" width="37" height="15" /></A></td>
+                  <td width="40"><A href="${pageContext.request.contextPath}/admin/goods/showgoods.do?currentPage=${pageInfo.getPages()}&goods_name=${good.goods_name}"><img src="images/last.gif" width="37" height="15" /></A></td>
                   <td width="100"><div align="center"><span class="STYLE1">转到第<input name="textfield" type="text" size="4" style="height:12px; width:20px; border:1px solid #999999;" /> 
                     	页 </span></div></td>
                   <td width="40"><img src="images/go.gif" width="37" height="15" /></td>
@@ -234,5 +234,49 @@ for(i=0;i<cs.length;i++){
     </td>
   </tr>
 </table>
+  <script type="application/javascript" src="${pageContext.request.contextPath}/js/jquery-1.7.2.min.js"></script>
+  <script type="application/javascript" src="${pageContext.request.contextPath}/js/ajaxfileupload.js"></script>
+  <script type="application/javascript">
+    $(function () {
+      //获取全选按钮 ，定义点击全选后的要实现的功能 <input type="checkbox" name="cbox_all" id="cbox_all" />
+      $("#cbox_all").click(function () {
+        // 点击了全选按钮要完成的功能 第一个this代表了全选按钮
+        if($(this).is(":checked")){//全选被选中了
+          $("input:checkbox").each(function () { //input:checkbox 选择所有的input元素中的复选框 遍历拿出每一个复选框 让所有的都选中
+            $(this).prop("checked",true); //this 代表了 所有的checkbox中的每一个
+          })
+        }else{//全选取消选择
+          $("input:checkbox").each(function () { //input:checkbox 选择所有的input元素中的复选框 遍历拿出每一个复选框 让所有的都选中
+            $(this).prop("checked",false); //this 代表了 所有的checkbox中的每一个
+          })
+        }
+      })
+
+      //批量删除按钮的功能，获取每一个复选框中的商品id的值（要排除全选按钮），将商品id添加到数组中 <A href="javascript:void(0)" id="delete_all">批量删除</A>
+      $("#delete_all").click(function () {
+        let ids = []
+        //获取每一个复选框中的商品id的值（要排除全选按钮）
+        $("input[name!='cbox_all']:checkbox").each(function () {
+          if($(this).is(":checked")){
+            //如果选择了将商品id添加到数组ids
+            ids.push($(this).val())
+          }
+        })
+        alert(ids)
+        //使用ajax请求提交ids到后台在数据库中删除ids中对应id的商品信息
+        $.ajax({
+          type:"get",
+          url:"${pageContext.request.contextPath}/admin/goods/batchdelete.do?ids=" + ids,
+          success:function (result) {
+            // 提示批量删除成功
+
+            // 删除成功后进入显示所有的商品信息
+            window.location.href = "${pageContext.request.contextPath}/admin/goods/showgoods.do";
+          }
+        })
+      })
+    })
+
+  </script>
   </body>
 </html>
