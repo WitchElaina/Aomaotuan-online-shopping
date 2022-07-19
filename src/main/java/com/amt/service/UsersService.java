@@ -42,4 +42,19 @@ public class UsersService {
         }
         return ret;
     }
+
+    public void addToCart(String goods_id, String uid) {
+        SqlSession sqlSession = null;
+        try {
+            sqlSession = SqlSessionUtils.getSqlSession();
+            UsersDao usersDao = sqlSession.getMapper(UsersDao.class);
+            usersDao.addToCart(goods_id, uid);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }  finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
+    }
 }

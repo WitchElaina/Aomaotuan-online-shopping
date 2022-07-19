@@ -4,6 +4,8 @@ import com.amt.bean.Goods;
 import com.amt.bean.GoodsType;
 import com.amt.service.GoodsService;
 import com.amt.service.GoodsTypeService;
+import com.amt.service.UsersService;
+import com.amt.utils.Md5Util;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet("/showgoods.do")
 public class UsersGoodsController extends HttpServlet {
@@ -42,6 +45,8 @@ public class UsersGoodsController extends HttpServlet {
         PageInfo<Goods> pageInfo = new PageInfo<>(all_goods);
 
         List<GoodsType> goodsTypes = new GoodsTypeService().find_all();
+
+        UsersService usersService = new UsersService();
 
         // response
         req.setAttribute("pageInfo", pageInfo);

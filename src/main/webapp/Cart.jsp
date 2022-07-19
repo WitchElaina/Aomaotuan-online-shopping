@@ -1,3 +1,5 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" contentType="text/html; utf-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -201,18 +203,6 @@
 <div class="indent boxS">
 	<div class="indentAea w1190">
 	<!-- 全选标题部分 -->
-		<div class="IAhead">
-			<span class="Allcheck checkbox"></span>
-			<span>全选</span>
-			<span class="Information">商品信息</span>
-			<ul class="IAul">
-				<li>关税</li>
-				<li>单价（元）</li>
-				<li>数量</li>
-				<li>金额（元）</li>
-				<li class="last">操作</li>
-			</ul>
-		</div> 
 		<div class="IAbd">
 			<h4>
 				<span class="Allcheck checkbox"></span>
@@ -220,63 +210,21 @@
 				<span>新郑综合保税区</span>
 			</h4>
 			<ul class="IAbdArea">
-				<li class="IAbdw">
-					<span class="lincheck checkbox"></span>
-					<img src="images/cartpro.jpg" alt="">
-					<p>
-						<a class="pro" href="#">Blackmores EPo月见草 160粒保养卵巢 调节内分泌</a>
-						<a class="use" href="#">
-							适用税率：10%
-							<s></s>
-							<u>
-								<em></em>
-								税费 = 不含税价格 * 件数 * 商品税率<br>
-								根据海关规定，本商品适用税率 : 10%,<br>
-								若订单总税额 ≤ 50元，海关予以免征。<br>
-							</u>
-						</a>
-					</p>
-					<ul class="IAul">
-						<li class="IAtax">￥<u>11.40</u></li>
-						<li class="price">
-							<strong>¥ <u>82.00</u></strong><br>
-							<s>125元</s>
-						</li>
-						<li class="num">
-							<span class="reduce">-</span>
-							<input type="text" value="1">
-							<span class="add">+</span>
-						</li>
-						<li class="Lastprice">¥ <u>82.00</u></li>
-						<li class="last btn">
-							<button>移入收藏夹</button><br>
-							<button class="delet">删除</button>
-						</li>
-					</ul>
-				</li>
-
+				<c:forEach var="item" items="goods">
+					<li class="IAbdw">
+<%--						<img src="uploadimg/${item.goods_img}" alt="${item.goods_name}">--%>
+						<p>
+							<a class="pro" href="#">${item.goods_name}</a>
+						</p>
+						<ul class="IAul">
+							<li class="price">
+								<strong>¥ <u>${item.goods_prices}</u></strong>
+							</li>
+						</ul>
+					</li>
+				</c:forEach>
 			</ul>
-			<div class="account">
-				<ul>
-					<li>活动优惠 ：-￥<u>0.00</u></li>
-					<li>商品应付总计 ：￥<u>114.00</u></li>
-					<li class="main">免关税</li>
-					<li class="mprice">￥<u>11.4</u></li>
-				</ul>
-			</div>
-			<div class="IAbdfoot">
-				<span class="checkbox Allcheck"></span>
-				<span>全选</span>
-				<span class="Information">删除选中商品</span>
-				<a href="#">去结算</a>
-				<p>
-					<strong>已选商品<b id="allnum"> 1 </b>件</strong>
-					<strong>总价（不含运费）：<b>￥<u id="allpri">114.00</u></b></strong><br>
-					<em>活动优惠 ：-￥<u>0.00</u></em>
-					<em>商品应付总计 ：￥<u>114.00</u></em>
-					<em>订单关税：￥<u>0</u></em>
-				</p>
-			</div>
+
 		</div>                          
 	</div>
 </div>

@@ -4,14 +4,24 @@ public class UserAccounts {
     private int uid;
     private String username;
     private String password;
+    private String cart;
 
     public UserAccounts() {
     }
 
-    public UserAccounts(int uid, String username, String password) {
+    public String getCart() {
+        return cart;
+    }
+
+    public void setCart(String cart) {
+        this.cart = cart;
+    }
+
+    public UserAccounts(int uid, String username, String password, String cart) {
         this.uid = uid;
         this.username = username;
         this.password = password;
+        this.cart = cart;
     }
 
     public int getUid() {

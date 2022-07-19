@@ -192,7 +192,7 @@
 			</div>
 		</form>
 		<!--购物车-->
-		<a href="#" class="buy_car">
+		<a href="${pageContext.request.contextPath}/showcart.do?cart=${cart}" class="buy_car">
 			<p>购物车</p>
 			<em>0</em>
 		</a>
@@ -505,9 +505,9 @@
 									<span class="r left">${item.goods_id}</span>
 								</p>
 <%--								TODO--%>
-<%--								<div class="show">--%>
-<%--									<a class="add" href="${pageContext.request.contextPath}/addtochart.do?goods_id=${item.goods_id}">加入购物车</a>--%>
-<%--								</div>--%>
+								<div class="show">
+									<a class="add" href="${pageContext.request.contextPath}/addtocart.do?goods_id=${item.goods_id}&uid=${users.uid}&user_package=${cart}">加入购物车</a>
+								</div>
 								<div class="proImg">
 									<a href="#">
 										<img src="uploadimg/${item.goods_img}" alt="${item.goods_name}">

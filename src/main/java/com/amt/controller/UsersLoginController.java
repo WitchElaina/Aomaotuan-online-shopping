@@ -29,6 +29,7 @@ public class UsersLoginController extends HttpServlet {
         else {
             HttpSession session = req.getSession();
             session.setAttribute("users",users);
+            session.setAttribute("cart",users.get("cart"));
 
             resp.sendRedirect(req.getContextPath()+"/showgoods.do");
         }
