@@ -30,7 +30,7 @@ public class UsersLoginController extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute("users",users);
 
-            resp.sendRedirect(req.getContextPath()+"/list.jsp");
+            resp.sendRedirect(req.getContextPath()+"/showgoods.do");
         }
     }
 }

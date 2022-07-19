@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" contentType="text/html; utf-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -181,25 +182,15 @@
 			<a href="index.html">澳猫网</a>
 		</div>
 		<!-- 搜索 -->
-		<div class="search">
-			<div class="txt">
-				<input class="SearchBttonValue" type="text" placeholder="Swisse/澳洲">
+		<form action="${pageContext.request.contextPath}/showgoods.do" name="showgoodsform" method="post">
+			<div class="search">
+				<div class="txt">
+					<input class="SearchBttonValue" name="goods_name" type="text" placeholder="Swisse/澳洲">
+				</div>
+				<input type="submit" value="Search..">
+
 			</div>
-			<a class="SearchBtton btn" href="#">
-				搜索
-			</a>
-			<div class="hot_search">
-				<em>热门搜索：</em>
-				<span><a target="_blank" href="#">胶原蛋白</a></span>
-				<span><a target="_blank" href="#">叶绿素</a></span>
-				<span><a target="_blank" href="#">睡眠片</a></span>
-				<span><a target="_blank" href="#">儿童维生素</a></span>
-				<span><a target="_blank" href="#">鱼肝油</a></span>
-				<span><a target="_blank" href="#">保健品</a></span>
-				<span><a target="_blank" href="#">美容</a></span>
-				<span><a target="_blank" href="#">运动保健</a></span>
-			</div>
-		</div>
+		</form>
 		<!--购物车-->
 		<a href="#" class="buy_car">
 			<p>购物车</p>
@@ -476,726 +467,77 @@
 		<!-- 主要内容 -->
 		<div class="content w1190 clearfix">
 			<!-- 侧边 -->
-			<div class="sidebar">
-				<!-- 全部分类 -->
-				<div class="classify">
-					<h3>美妆个护</h3>
-					<div class="ClaCont">
-						<dl>
-							<dt><a href="#">护肤</a></dt>
-							<dd class="cli">
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;面部洗护</a></li>
-									<li><a href="#">·&nbsp;&nbsp;眼部护理</a></li>
-									<li><a href="#">·&nbsp;&nbsp;唇部护理</a></li>
-									<li><a href="#">·&nbsp;&nbsp;祛斑祛痘</a></li>
-									<li><a href="#">·&nbsp;&nbsp;手足洗护</a></li>
-									<li><a href="#">·&nbsp;&nbsp;眼部护理</a></li>
-									<li><a href="#">·&nbsp;&nbsp;防晒修复</a></li>
-								</ul>
-							</dd>
-							<dt><a href="#">个人洗护</a></dt>
-							<dd>
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;沐浴护肤</a></li>
-									<li><a href="#">·&nbsp;&nbsp;洗发护发</a></li>
-									<li><a href="#">·&nbsp;&nbsp;口腔护理</a></li>
-								</ul>
-							</dd>
-							<dt><a href="#">健康生活</a></dt>
-							<dd>
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;消毒液</a></li>
-									<li><a href="#">·&nbsp;&nbsp;洗洁精</a></li>
-								</ul>
-							</dd><!-- 
-							<dt><a href="#">个人洗护</a></dt>
-							<dd>
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;口腔护理</a></li>
-									<li><a href="#">·&nbsp;&nbsp;沐浴护肤</a></li>
-									<li><a href="#">·&nbsp;&nbsp;洗发护发</a></li>
-								</ul>
-							</dd>
-							<dt><a href="#">护肤</a></dt>
-							<dd>
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;防晒修复</a></li>
-									<li><a href="#">·&nbsp;&nbsp;面部洗护</a></li>
-									<li><a href="#">·&nbsp;&nbsp;祛斑祛痘</a></li>
-									<li><a href="#">·&nbsp;&nbsp;手足洗护</a></li>
-									<li><a href="#">·&nbsp;&nbsp;眼、唇部护理</a></li>
-								</ul>
-							</dd>
-							<dt><a href="#">健康生活</a></dt>
-							<dd>
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;洗洁精</a></li>
-									<li><a href="#">·&nbsp;&nbsp;消毒液</a></li>
-								</ul>
-							</dd>
-							<dt><a href="#">美容养颜</a></dt>
-							<dd>
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;补气养血</a></li>
-									<li><a href="#">·&nbsp;&nbsp;胶原蛋白</a></li>
-									<li><a href="#">·&nbsp;&nbsp;排毒养颜</a></li>
-									<li><a href="#">·&nbsp;&nbsp;完美身材</a></li>
-								</ul>
-							</dd>
-							<dt><a href="#">女性护理</a></dt>
-							<dd>
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;私处洗液</a></li>
-									<li><a href="#">·&nbsp;&nbsp;卫生巾</a></li>
-								</ul>
-							</dd>
-							<dt><a href="#">宝宝用品</a></dt>
-							<dd>
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;护肤</a></li>
-									<li><a href="#">·&nbsp;&nbsp;驱蚊</a></li>
-									<li><a href="#">·&nbsp;&nbsp;洗漱</a></li>
-								</ul>
-							</dd>
-							<dt><a href="#">辅食营养</a></dt>
-							<dd>
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;辅食代餐</a></li>
-									<li><a href="#">·&nbsp;&nbsp;抗感冒/止咳</a></li>
-									<li><a href="#">·&nbsp;&nbsp;营养品</a></li>
-								</ul>
-							</dd>
-							<dt><a href="#">奶粉</a></dt>
-							<dd>
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;1段 0-6个月</a></li>
-									<li><a href="#">·&nbsp;&nbsp;2段 6-12个月</a></li>
-									<li><a href="#">·&nbsp;&nbsp;3段 1-3岁</a></li>
-									<li><a href="#">·&nbsp;&nbsp;4段 3-6岁</a></li>
-								</ul>
-							</dd>
-							<dt><a href="#">孕妈专用</a></dt>
-							<dd>
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;哺乳期</a></li>
-									<li><a href="#">·&nbsp;&nbsp;孕期营养</a></li>
-									<li><a href="#">·&nbsp;&nbsp;孕前备孕</a></li>
-								</ul>
-							</dd>
-							<dt><a href="#">心脑血管</a></dt>
-							<dd>
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;降糖</a></li>
-									<li><a href="#">·&nbsp;&nbsp;养心</a></li>
-								</ul>
-							</dd>
-							<dt><a href="#">滋补养生</a></dt>
-							<dd>
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;高钙奶粉</a></li>
-									<li><a href="#">·&nbsp;&nbsp;维骨力</a></li>
-								</ul>
-							</dd>
-							<dt><a href="#">男士保健</a></dt>
-							<dd>
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;前列康</a></li>
-									<li><a href="#">·&nbsp;&nbsp;强精补肾</a></li>
-								</ul>
-							</dd>
-							<dt><a href="#">营养保健</a></dt>
-							<dd>
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;蜂蜜/蜂胶</a></li>
-									<li><a href="#">·&nbsp;&nbsp;维生素/矿物质</a></li>
-									<li><a href="#">·&nbsp;&nbsp;鱼油</a></li>
-								</ul>
-							</dd>
-							<dt><a href="#">职场白领</a></dt>
-							<dd class="last">
-								<em></em>
-								<ul>
-									<li><a href="#">·&nbsp;&nbsp;护肝</a></li>
-									<li><a href="#">·&nbsp;&nbsp;护眼</a></li>
-									<li><a href="#">·&nbsp;&nbsp;其他</a></li>
-								</ul>
-							</dd> -->
-						</dl>
-					</div>
-				</div>
-				<!-- 热卖排行榜 -->
-				<div class="hotSale">
-					<h3>热卖排行榜</h3>
-					<div class="HRproduct">
-						<ul>
-							<li>
-								<div class="HRpic">
-									<a href="#">
-										<img class="lazy" src="js/lazyload/grey.gif" data-original="images/lproduct7.png" alt="">
-									</a>
-								</div>
-								<div class="HRtxt">
-									<p><a href="#">Sukin苏芊 玫瑰果补湿日霜 120毫升</a></p>
-									<p class="clearfix">
-										<strong class="c065">￥89</strong>
-										<s>￥399</s>
-									</p>
-								</div>
-							</li>
-							<li>
-								<div class="HRpic">
-									<a href="#">
-										<img class="lazy" src="js/lazyload/grey.gif" data-original="images/lproduct7.png" alt="">
-									</a>
-								</div>
-								<div class="HRtxt">
-									<p><a href="#">Sukin苏芊 玫瑰果补湿日霜 120毫升</a></p>
-									<p class="clearfix">
-										<strong class="c065">￥89</strong>
-										<s>￥399</s>
-									</p>
-								</div>
-							</li>
-							<li>
-								<div class="HRpic">
-									<a href="#">
-										<img class="lazy" src="js/lazyload/grey.gif" data-original="images/lproduct7.png" alt="">
-									</a>
-								</div>
-								<div class="HRtxt">
-									<p><a href="#">Sukin苏芊 玫瑰果补湿日霜 120毫升</a></p>
-									<p class="clearfix">
-										<strong class="c065">￥89</strong>
-										<s>￥399</s>
-									</p>
-								</div>
-							</li>
-							<li>
-								<div class="HRpic">
-									<a href="#">
-										<img class="lazy" src="js/lazyload/grey.gif" data-original="images/lproduct7.png" alt="">
-									</a>
-								</div>
-								<div class="HRtxt">
-									<p><a href="#">Sukin苏芊 玫瑰果补湿日霜 120毫升</a></p>
-									<p class="clearfix">
-										<strong class="c065">￥89</strong>
-										<s>￥399</s>
-									</p>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+
 			<!-- 主要内容 -->
 			<div class="mianContent">
-				<!-- 商品筛选 -->
-				<div class="screen">
-					<!-- <h4 class="srenTitle clearfix">
-						<span class="sreA">美可卓<em>×</em></span>
-						<span class="sreA">0-199<em>×</em></span>	
-					</h4> -->
-					<div class="srenArea">
-						<div class="brand clearfix">
-							<h5>品牌</h5>
-							<ul class="clearfix">
-								<li><a href="#">swisse</a><em>×</em></li>
-								<li><a href="#">blackmore</a><em>×</em></li>
-								<li><a href="#">natures,way</a><em>×</em></li>
-								<li><a href="#">healthy care</a><em>×</em></li>
-								<li><a href="#">bio island</a><em>×</em></li>
-								<li><a href="#">美可卓</a><em>×</em></li>
-								<li><a href="#">proctosedyl</a><em>×</em></li>
-								<li><a href="#">voost</a><em>×</em></li>
-								<li><a href="#">swisse</a><em>×</em></li>
-								<li><a href="#">blackmore</a><em>×</em></li>
-								<li><a href="#">natures,way</a><em>×</em></li>
-								<li><a href="#">healthy care</a><em>×</em></li>
-								<li><a href="#">bio island</a><em>×</em></li>
-								<li><a href="#">美可卓</a><em>×</em></li>
-								<li><a href="#">proctosedyl</a><em>×</em></li>
-								<li><a href="#">voost</a><em>×</em></li>
-								<li><a href="#">swisse</a><em>×</em></li>
-								<li><a href="#">blackmore</a><em>×</em></li>
-								<li><a href="#">natures,way</a><em>×</em></li>
-								<li><a href="#">healthy care</a><em>×</em></li>
-								<li><a href="#">bio island</a><em>×</em></li>
-								<li><a href="#">美可卓</a><em>×</em></li>
-								<li><a href="#">proctosedyl</a><em>×</em></li>
-								<li><a href="#">voost</a><em>×</em></li>
-							</ul>
-						</div>
-						<div class="price clearfix">
-							<h5>价格</h5>
-							<ul class="clearfix">
-								<li><a href="#">0-199</a></li>
-								<li><a href="#">200-399</a></li>
-								<li><a href="#">400-599</a></li>
-								<li><a href="#">600-799</a></li>
-								<li><a href="#">800以上</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- 你是不是要找 -->
-				<div class="find clearfix">
-					<h5>你是不是还要找：</h5>
-					<ul>
-						<li><a href="#">沐浴护肤</a></li>
-						<li><a href="#">洗发护发</a></li>
-						<li><a href="#">口腔护理</a></li>
-					</ul>
-				</div>
-				<!-- 筛选排序 -->
-				<div class="sort clearfix">
-					<ul class="condition clearfix">
-						<li><a href="#">默认</a></li>
-						<li><a href="#">销量</a></li>
-						<li><a href="#">评价</a></li>
-						<li><a href="#">新品</a></li>
-						<li><a href="#">价格</a></li>
-					</ul>
-					<div class="change">
-						<span class="left">&lt;</span>
-						<span class="right">&gt;</span>
-					</div>
-				</div>
 				<!-- 商品内容 -->
 				<div class="product">
 					<ul class="clearfix">
-						<li>
-							<p class="privilege clearfix">
-								<span class="y right">包邮</span>
-								<span class="r left">5.0折</span>
-							</p>
-							<div class="hoverShow collect"><em></em>收藏</div>
-							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-							<div class="show">
-								<a class="add" href="#">加入购物车</a>
-								<a class="contrast" href="#">商品对比</a>
-							</div>
-							<div class="proImg">
-								<a href="#">
-									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">
-								</a>
-							</div>
-							<div class="proTxt">
-								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>
-								<p class="num">已售出1000件</p>
-								<p>
-									<strong>￥178.00</strong>
-									<s>￥256.00</s>
+<%--						<li>--%>
+<%--							<p class="privilege clearfix">--%>
+<%--								<span class="y right">包邮</span>--%>
+<%--								<span class="r left">5.0折</span>--%>
+<%--							</p>--%>
+<%--							<div class="hoverShow collect"><em></em>收藏</div>--%>
+<%--							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->--%>
+<%--							<div class="show">--%>
+<%--								<a class="add" href="#">加入购物车</a>--%>
+<%--								<a class="contrast" href="#">商品对比</a>--%>
+<%--							</div>--%>
+<%--							<div class="proImg">--%>
+<%--								<a href="#">--%>
+<%--									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">--%>
+<%--								</a>--%>
+<%--							</div>--%>
+<%--							<div class="proTxt">--%>
+<%--								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>--%>
+<%--								<p class="num">已售出1000件</p>--%>
+<%--								<p>--%>
+<%--									<strong>￥178.00</strong>--%>
+<%--									<s>￥256.00</s>--%>
+<%--								</p>--%>
+<%--							</div>--%>
+<%--						</li>--%>
+						<c:forEach var="item" items="${goods}">
+							<li>
+								<p class="privilege clearfix">
+									<span class="y right">${item.type_name}</span>
+									<span class="r left">${item.goods_id}</span>
 								</p>
-							</div>
-						</li>
-						<li>
-							<p class="privilege clearfix">
-								<span class="b right">新品</span>
-								<span class="y left">包邮</span>
-							</p>
-							<div class="hoverShow collect"><em></em>收藏</div>
-							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-							<div class="show">
-								<a class="add" href="#">加入购物车</a>
-								<a class="contrast" href="#">商品对比</a>
-							</div>
-							<div class="proImg">
-								<a href="#">
-									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">
-								</a>
-							</div>
-							<div class="proTxt">
-								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>
-								<p class="num">已售出1000件</p>
-								<p>
-									<strong>￥178.00</strong>
-									<s>￥256.00</s>
-								</p>
-							</div>
-						</li>
-						<li>
-							<p class="privilege clearfix">
-								<span class="b right">新品</span>
-								<span class="r left">5.0折</span>
-							</p>
-							<div class="hoverShow collect"><em></em>收藏</div>
-							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-							<div class="show">
-								<a class="add" href="#">加入购物车</a>
-								<a class="contrast" href="#">商品对比</a>
-							</div>
-							<div class="proImg">
-								<a href="#">
-									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">
-								</a>
-							</div>
-							<div class="proTxt">
-								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>
-								<p class="num">已售出1000件</p>
-								<p>
-									<strong>￥178.00</strong>
-									<s>￥256.00</s>
-								</p>
-							</div>
-						</li>
-						<li class="mrNone">
-							<p class="privilege clearfix">
-								<span class="b right">新品</span>
-								<span class="y left">包邮</span>
-							</p>
-							<div class="hoverShow collect"><em></em>收藏</div>
-							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-							<div class="show">
-								<a class="add" href="#">加入购物车</a>
-								<a class="contrast" href="#">商品对比</a>
-							</div>
-							<div class="proImg">
-								<a href="#">
-									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">
-								</a>
-							</div>
-							<div class="proTxt">
-								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>
-								<p class="num">已售出1000件</p>
-								<p>
-									<strong>￥178.00</strong>
-									<s>￥256.00</s>
-								</p>
-							</div>
-						</li>
-						<li>
-							<!-- <p class="privilege clearfix">
-								<span class="y right">包邮</span>
-								<span class="r left">5.0折</span>
-							</p> -->
-							<div class="hoverShow collect"><em></em>收藏</div>
-							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-							<div class="show">
-								<a class="add" href="#">加入购物车</a>
-								<a class="contrast" href="#">商品对比</a>
-							</div>
-							<div class="proImg">
-								<a href="#">
-									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">
-								</a>
-							</div>
-							<div class="proTxt">
-								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>
-								<p class="num">已售出1000件</p>
-								<p>
-									<strong>￥178.00</strong>
-									<s>￥256.00</s>
-								</p>
-							</div>
-						</li>
-						<li>
-							<!-- <p class="privilege clearfix">
-								<span class="b right">新品</span>
-								<span class="y left">包邮</span>
-							</p> -->
-							<div class="hoverShow collect"><em></em>收藏</div>
-							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-							<div class="show">
-								<a class="add" href="#">加入购物车</a>
-								<a class="contrast" href="#">商品对比</a>
-							</div>
-							<div class="proImg">
-								<a href="#">
-									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">
-								</a>
-							</div>
-							<div class="proTxt">
-								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>
-								<p class="num">已售出1000件</p>
-								<p>
-									<strong>￥178.00</strong>
-									<s>￥256.00</s>
-								</p>
-							</div>
-						</li>
-						<li>
-							<!-- <p class="privilege clearfix">
-								<span class="b right">新品</span>
-								<span class="r left">5.0折</span>
-							</p> -->
-							<div class="hoverShow collect"><em></em>收藏</div>
-							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-							<div class="show">
-								<a class="add" href="#">加入购物车</a>
-								<a class="contrast" href="#">商品对比</a>
-							</div>
-							<div class="proImg">
-								<a href="#">
-									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">
-								</a>
-							</div>
-							<div class="proTxt">
-								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>
-								<p class="num">已售出1000件</p>
-								<p>
-									<strong>￥178.00</strong>
-									<s>￥256.00</s>
-								</p>
-							</div>
-						</li>
-						<li class="mrNone">
-							<!-- <p class="privilege clearfix">
-								<span class="b right">新品</span>
-								<span class="y left">包邮</span>
-							</p> -->
-							<div class="hoverShow collect"><em></em>收藏</div>
-							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-							<div class="show">
-								<a class="add" href="#">加入购物车</a>
-								<a class="contrast" href="#">商品对比</a>
-							</div>
-							<div class="proImg">
-								<a href="#">
-									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">
-								</a>
-							</div>
-							<div class="proTxt">
-								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>
-								<p class="num">已售出1000件</p>
-								<p>
-									<strong>￥178.00</strong>
-									<s>￥256.00</s>
-								</p>
-							</div>
-						</li>
-						<li>
-							<!-- <p class="privilege clearfix">
-								<span class="y right">包邮</span>
-								<span class="r left">5.0折</span>
-							</p> -->
-							<div class="hoverShow collect"><em></em>收藏</div>
-							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-							<div class="show">
-								<a class="add" href="#">加入购物车</a>
-								<a class="contrast" href="#">商品对比</a>
-							</div>
-							<div class="proImg">
-								<a href="#">
-									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">
-								</a>
-							</div>
-							<div class="proTxt">
-								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>
-								<p class="num">已售出1000件</p>
-								<p>
-									<strong>￥178.00</strong>
-									<s>￥256.00</s>
-								</p>
-							</div>
-						</li>
-						<li>
-							<!-- <p class="privilege clearfix">
-								<span class="b right">新品</span>
-								<span class="y left">包邮</span>
-							</p> -->
-							<div class="hoverShow collect"><em></em>收藏</div>
-							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-							<div class="show">
-								<a class="add" href="#">加入购物车</a>
-								<a class="contrast" href="#">商品对比</a>
-							</div>
-							<div class="proImg">
-								<a href="#">
-									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">
-								</a>
-							</div>
-							<div class="proTxt">
-								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>
-								<p class="num">已售出1000件</p>
-								<p>
-									<strong>￥178.00</strong>
-									<s>￥256.00</s>
-								</p>
-							</div>
-						</li>
-						<li>
-							<!-- <p class="privilege clearfix">
-								<span class="b right">新品</span>
-								<span class="r left">5.0折</span>
-							</p> -->
-							<div class="hoverShow collect"><em></em>收藏</div>
-							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-							<div class="show">
-								<a class="add" href="#">加入购物车</a>
-								<a class="contrast" href="#">商品对比</a>
-							</div>
-							<div class="proImg">
-								<a href="#">
-									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">
-								</a>
-							</div>
-							<div class="proTxt">
-								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>
-								<p class="num">已售出1000件</p>
-								<p>
-									<strong>￥178.00</strong>
-									<s>￥256.00</s>
-								</p>
-							</div>
-						</li>
-						<li class="mrNone">
-							<!-- <p class="privilege clearfix">
-								<span class="b right">新品</span>
-								<span class="y left">包邮</span>
-							</p> -->
-							<div class="hoverShow collect"><em></em>收藏</div>
-							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-							<div class="show">
-								<a class="add" href="#">加入购物车</a>
-								<a class="contrast" href="#">商品对比</a>
-							</div>
-							<div class="proImg">
-								<a href="#">
-									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">
-								</a>
-							</div>
-							<div class="proTxt">
-								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>
-								<p class="num">已售出1000件</p>
-								<p>
-									<strong>￥178.00</strong>
-									<s>￥256.00</s>
-								</p>
-							</div>
-						</li>
-						<li>
-							<!-- <p class="privilege clearfix">
-								<span class="y right">包邮</span>
-								<span class="r left">5.0折</span>
-							</p> -->
-							<div class="hoverShow collect"><em></em>收藏</div>
-							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-							<div class="show">
-								<a class="add" href="#">加入购物车</a>
-								<a class="contrast" href="#">商品对比</a>
-							</div>
-							<div class="proImg">
-								<a href="#">
-									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">
-								</a>
-							</div>
-							<div class="proTxt">
-								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>
-								<p class="num">已售出1000件</p>
-								<p>
-									<strong>￥178.00</strong>
-									<s>￥256.00</s>
-								</p>
-							</div>
-						</li>
-						<li>
-							<!-- <p class="privilege clearfix">
-								<span class="b right">新品</span>
-								<span class="y left">包邮</span>
-							</p> -->
-							<div class="hoverShow collect"><em></em>收藏</div>
-							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-							<div class="show">
-								<a class="add" href="#">加入购物车</a>
-								<a class="contrast" href="#">商品对比</a>
-							</div>
-							<div class="proImg">
-								<a href="#">
-									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">
-								</a>
-							</div>
-							<div class="proTxt">
-								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>
-								<p class="num">已售出1000件</p>
-								<p>
-									<strong>￥178.00</strong>
-									<s>￥256.00</s>
-								</p>
-							</div>
-						</li>
-						<li>
-							<!-- <p class="privilege clearfix">
-								<span class="b right">新品</span>
-								<span class="r left">5.0折</span>
-							</p> -->
-							<div class="hoverShow collect"><em></em>收藏</div>
-							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-							<div class="show">
-								<a class="add" href="#">加入购物车</a>
-								<a class="contrast" href="#">商品对比</a>
-							</div>
-							<div class="proImg">
-								<a href="#">
-									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">
-								</a>
-							</div>
-							<div class="proTxt">
-								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>
-								<p class="num">已售出1000件</p>
-								<p>
-									<strong>￥178.00</strong>
-									<s>￥256.00</s>
-								</p>
-							</div>
-						</li>
-						<li class="mrNone">
-							<!-- <p class="privilege clearfix">
-								<span class="b right">新品</span>
-								<span class="y left">包邮</span>
-							</p> -->
-							<div class="hoverShow collect"><em></em>收藏</div>
-							<!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
-							<div class="show">
-								<a class="add" href="#">加入购物车</a>
-								<a class="contrast" href="#">商品对比</a>
-							</div>
-							<div class="proImg">
-								<a href="#">
-									<img class="lazy" src="js/lazyload/grey.gif" data-original="images/product2L.jpg" alt="">
-								</a>
-							</div>
-							<div class="proTxt">
-								<p><a href="#">Blackmores EPO月见草 澳洲澳佳宝 190粒...</a></p>
-								<p class="num">已售出1000件</p>
-								<p>
-									<strong>￥178.00</strong>
-									<s>￥256.00</s>
-								</p>
-							</div>
-						</li>
+<%--								TODO--%>
+<%--								<div class="show">--%>
+<%--									<a class="add" href="${pageContext.request.contextPath}/addtochart.do?goods_id=${item.goods_id}">加入购物车</a>--%>
+<%--								</div>--%>
+								<div class="proImg">
+									<a href="#">
+										<img src="uploadimg/${item.goods_img}" alt="${item.goods_name}">
+									</a>
+								</div>
+								<div class="proTxt">
+									<p><a href="#">${item.goods_name}</a></p>
+									<p class="num">已售出${item.goods_num}件</p>
+									<p>
+										<strong>￥${item.goods_price}</strong>
+									</p>
+								</div>
+							</li>
+						</c:forEach>
 					</ul>
 				</div>
 				<!-- 底部页码 -->
 				<div class="footNum">
 					<ul>
-						<li class="pre"><a href="#">上一页</a></li>
-						<li class="num current"><a href="#">1</a></li>
-						<li class="num"><a href="#">2</a></li>
-						<li class="num"><a href="#">3</a></li>
-						<li class="last"><a href="#">下一页</a></li>
-						<li class="txt">向第</li>
-						<li class="ipt">
-							<input type="text">
-						</li>
-						<li><button>跳转</button></li>
+						<li class="pre"><a href="${pageContext.request.contextPath}/showgoods.do?currentPage=${pageInfo.getPageNum()-1==0?1:pageInfo.getPageNum()-1}&goods_name=${good.goods_name}">上一页</a></li>
+<%--						<li class="num"><a href="#">1</a></li>--%>
+<%--						<li class="num"><a href="#">2</a></li>--%>
+<%--						<li class="num"><a href="#">3</a></li>--%>
+						<li class="last"><a href="${pageContext.request.contextPath}/showgoods.do?currentPage=${pageInfo.getPageNum()==pageInfo.getPages()?pageInfo.getPages():pageInfo.getPageNum()+1}&goods_name=${good.goods_name}">下一页</a></li>
+<%--						<li class="txt">向第</li>--%>
+<%--						<li class="ipt">--%>
+<%--							<input type="text">--%>
+<%--						</li>--%>
+<%--						<li><button>跳转</button></li>--%>
+						<li class="txt">共有${pageInfo.getTotal()}条记录，当前第${pageInfo.getPageNum()}/${pageInfo.getPages()}页</li>
 					</ul>
 				</div>
 			</div>

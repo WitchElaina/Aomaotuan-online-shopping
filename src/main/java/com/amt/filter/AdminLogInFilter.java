@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
 
-@WebFilter(filterName = "AdminLoginFilter", urlPatterns = {"*.jsp", "*.do"})
+@WebFilter(filterName = "AdminLoginFilter", urlPatterns = {})
 public class AdminLogInFilter implements Filter {
 
     @Override
@@ -24,7 +24,7 @@ public class AdminLogInFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
         String uri = request.getRequestURI();
-        if (!uri.contains("login.do") && !uri.contains("register.do") && !uri.contains("login.jsp") && !uri.contains("adminlogout.jsp") && !uri.contains("register.jsp") && !uri.contains("list.jsp")) {
+        if (!uri.contains("login.do") && !uri.contains("register.do") && !uri.contains("login.jsp") && !uri.contains("adminlogout.jsp") && !uri.contains("register.jsp") && !uri.contains("list.jsp") && !uri.contains("showgooods.do")) {
             HttpSession session =request.getSession();
             Map<String,Object> admins = (Map<String,Object>) session.getAttribute("admins");
 
