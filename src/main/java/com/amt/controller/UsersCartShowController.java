@@ -20,14 +20,15 @@ public class UsersCartShowController extends HttpServlet {
         String cart_str = req.getParameter("cart");
         List<String> cart_list = Arrays.asList(cart_str.split(","));
         GoodsService goodsService = new GoodsService();
-        List<Map<String,Object>> cart = new ArrayList<>();
+        List<Goods> cart = new ArrayList<>();
+//        List<Map<String,Object>> cart = new ArrayList<>();
         Goods cur = null;
         Map<String,Object> cur_map = new HashMap<>();
         for (String goods_id:cart_list) {
-            cur = goodsService.find_goods_by_id(Integer.parseInt(goods_id));
-            cur_map.put("goods_name",cur.getGoods_name());
-            cur_map.put("goods_prices",cur.getGoods_price());
-            cart.add(cur_map);
+            cart.add(goodsService.find_goods_by_id(Integer.parseInt(goods_id)));
+//            cur_map.put("goods_name",cur.getGoods_name());
+//            cur_map.put("goods_prices",cur.getGoods_price());
+//            cart.add(cur_map);
         }
         HttpSession session = req.getSession();
         session.setAttribute("goods",cart);

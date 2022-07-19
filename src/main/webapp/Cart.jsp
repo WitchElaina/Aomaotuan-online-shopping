@@ -210,7 +210,7 @@
 				<span>新郑综合保税区</span>
 			</h4>
 			<ul class="IAbdArea">
-				<c:forEach var="item" items="goods">
+				<c:forEach var="item" items="${goods}">
 					<li class="IAbdw">
 <%--						<img src="uploadimg/${item.goods_img}" alt="${item.goods_name}">--%>
 						<p>
@@ -218,7 +218,7 @@
 						</p>
 						<ul class="IAul">
 							<li class="price">
-								<strong>¥ <u>${item.goods_prices}</u></strong>
+								<strong>¥ <u>${item.goods_price}</u></strong>
 							</li>
 						</ul>
 					</li>
