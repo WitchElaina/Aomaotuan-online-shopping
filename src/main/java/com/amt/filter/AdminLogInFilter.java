@@ -24,7 +24,7 @@ public class AdminLogInFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
         String uri = request.getRequestURI();
-        if (!uri.contains("login.do") && !uri.contains("adminlogin.jsp") && !uri.contains("adminlogout.jsp")) {
+        if (!uri.contains("login.do") && !uri.contains("register.do") && !uri.contains("login.jsp") && !uri.contains("adminlogout.jsp") && !uri.contains("register.jsp") && !uri.contains("list.jsp")) {
             HttpSession session =request.getSession();
             Map<String,Object> admins = (Map<String,Object>) session.getAttribute("admins");
 
